@@ -1,7 +1,13 @@
 package entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import datatypes.DTLinea;
 
@@ -12,6 +18,12 @@ public class Linea {
 	private int codigo;
 	private String origen;
 	private String destino;
+	
+	@ManyToOne
+	private Compania compania;
+	
+	@OneToMany(mappedBy="linea",cascade=CascadeType.ALL,orphanRemoval=true)
+	private List<Recorrido> recorridos = new ArrayList<>();
 	
 	//********* CONSTRUCTORS **************
 	
