@@ -16,10 +16,11 @@ import datatypes.DTRecorrido;
 public class Recorrido {
 
 	@Id
-	private int codigo;
+	private long codigo;
 	private String nombre;
 	private Boolean desvio;
 	private LocalDate fechaMod;
+	private String geom;
 	
 	@ManyToOne
 	private Linea linea;
@@ -35,29 +36,30 @@ public class Recorrido {
 		super();
 	}
 
-	public Recorrido(int codigo, String nombre, Boolean desvio, LocalDate fechaMod) {
+	public Recorrido(long codigo, String nombre, Boolean desvio, LocalDate fechaMod, String geom, Linea linea) {
 		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
 		this.desvio = desvio;
 		this.fechaMod = fechaMod;
+		this.geom = geom;
+		this.linea = linea;
 	}
-	
+
 	//Se crea un objeto Recorrido a partir de un Data Type
-	public Recorrido(DTRecorrido dtrecorrido) {
-		this.codigo = dtrecorrido.getCodigo();
-		this.nombre = dtrecorrido.getNombre();
-		this.desvio = dtrecorrido.getDesvio();
-		this.fechaMod = dtrecorrido.getFechaMod();
+	public Recorrido(DTRecorrido recorrido) {
+		this.codigo = recorrido.getCodigo();
+		this.nombre = recorrido.getNombre();
+		this.desvio = recorrido.getDesvio();
+		this.fechaMod = recorrido.getFechaMod();
+		this.geom = recorrido.getGeom();
 	}
-	
-	//******** GETTERS AND SETTERS ************
-	
-	public int getCodigo() {
+
+	public long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(long codigo) {
 		this.codigo = codigo;
 	}
 
@@ -83,6 +85,30 @@ public class Recorrido {
 
 	public void setFechaMod(LocalDate fechaMod) {
 		this.fechaMod = fechaMod;
+	}
+
+	public String getGeom() {
+		return geom;
+	}
+
+	public void setGeom(String geom) {
+		this.geom = geom;
+	}
+
+	public Linea getLinea() {
+		return linea;
+	}
+
+	public void setLinea(Linea linea) {
+		this.linea = linea;
+	}
+
+	public List<Parada> getParadas() {
+		return paradas;
+	}
+
+	public void setParadas(List<Parada> paradas) {
+		this.paradas = paradas;
 	}
 
 }

@@ -1,8 +1,13 @@
 package entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import datatypes.DTParada;
 import enumerations.Estado;
@@ -12,13 +17,18 @@ public class Parada {
 
 	@Id
 	@GeneratedValue
-	private int id;
+	private int gid;
 	private String nombre;
 	private String ubicacion;
+	private long x;
+	private long y;
+	private String geom;
 	private int hora;
 	private int min;
 	private Estado estado;
 	
+	@OneToMany(mappedBy="parada",cascade=CascadeType.ALL,orphanRemoval=true) 
+	private List<LineaParada> lineaParada = new ArrayList<>(); 
 	
 	//********* CONSTRUCTORS **************
 	
@@ -27,34 +37,42 @@ public class Parada {
 		super();
 	}
 
-	public Parada(int id, String nombre, String ubicacion, int hora, int min, Estado estado) {
+	public Parada(int gid, String nombre, String ubicacion, long x, long y, String geom, int hora, int min,
+			Estado estado) {
 		super();
-		this.id = id;
+		this.gid = gid;
 		this.nombre = nombre;
 		this.ubicacion = ubicacion;
+		this.x = x;
+		this.y = y;
+		this.geom = geom;
 		this.hora = hora;
 		this.min = min;
 		this.estado = estado;
 	}
 
+
+
 	//Se crea un objeto Parada a partir de un Data Type
-	public Parada(DTParada dtparada) {
-		this.id = dtparada.getId();
-		this.nombre = dtparada.getNombre();
-		this.ubicacion = dtparada.getUbicacion();
-		this.hora = dtparada.getHora();
-		this.min = dtparada.getMin();
-		this.estado = dtparada.getEstado();
-	}
-	
-	//******** GETTERS AND SETTERS ************
-	
-	public int getId() {
-		return id;
+	public Parada(DTParada p) {
+		super();
+		this.gid = p.getGid();
+		this.nombre = p.getNombre();
+		this.ubicacion = p.getUbicacion();
+		this.x = p.getX();
+		this.y = p.getY();
+		this.geom = p.getGeom();
+		this.hora = p.getHora();
+		this.min = p.getMin();
+		this.estado = p.getEstado();
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public int getGid() {
+		return gid;
+	}
+
+	public void setGid(int gid) {
+		this.gid = gid;
 	}
 
 	public String getNombre() {
@@ -71,6 +89,30 @@ public class Parada {
 
 	public void setUbicacion(String ubicacion) {
 		this.ubicacion = ubicacion;
+	}
+
+	public long getX() {
+		return x;
+	}
+
+	public void setX(long x) {
+		this.x = x;
+	}
+
+	public long getY() {
+		return y;
+	}
+
+	public void setY(long y) {
+		this.y = y;
+	}
+
+	public String getGeom() {
+		return geom;
+	}
+
+	public void setGeom(String geom) {
+		this.geom = geom;
 	}
 
 	public int getHora() {
@@ -96,5 +138,17 @@ public class Parada {
 	public void setEstado(Estado estado) {
 		this.estado = estado;
 	}
+
+	public List<LineaParada> getLineaParada() {
+		return lineaParada;
+	}
+
+	public void setLineaParada(List<LineaParada> lineaParada) {
+		this.lineaParada = lineaParada;
+	}
+	
+	
+	
+	
 
 }

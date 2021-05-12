@@ -9,10 +9,11 @@ public class DTRecorrido implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
-	private int codigo;
+	private long codigo;
 	private String nombre;
 	private Boolean desvio;
 	private LocalDate fechaMod;
+	private String geom;
 	
 	//********* CONSTRUCTORS **************
 	
@@ -21,12 +22,13 @@ public class DTRecorrido implements Serializable{
 		super();
 	}
 
-	public DTRecorrido(int codigo, String nombre, Boolean desvio, LocalDate fechaMod) {
+	public DTRecorrido(long codigo, String nombre, Boolean desvio, LocalDate fechaMod, String geom) {
 		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
 		this.desvio = desvio;
 		this.fechaMod = fechaMod;
+		this.geom = geom;
 	}
 
 	//Se crea un DTRecorrido a partir de un objeto Recorrido
@@ -35,15 +37,14 @@ public class DTRecorrido implements Serializable{
 		this.nombre = recorrido.getNombre();
 		this.desvio = recorrido.getDesvio();
 		this.fechaMod = recorrido.getFechaMod();
+		this.geom = recorrido.getGeom();
 	}
-	
-	//******** GETTERS AND SETTERS ************
-	
-	public int getCodigo() {
+
+	public long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(long codigo) {
 		this.codigo = codigo;
 	}
 
@@ -70,5 +71,14 @@ public class DTRecorrido implements Serializable{
 	public void setFechaMod(LocalDate fechaMod) {
 		this.fechaMod = fechaMod;
 	}
+
+	public String getGeom() {
+		return geom;
+	}
+
+	public void setGeom(String geom) {
+		this.geom = geom;
+	}
+		
 	
 }

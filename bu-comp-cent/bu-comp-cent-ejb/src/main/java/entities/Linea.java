@@ -15,15 +15,20 @@ import datatypes.DTLinea;
 public class Linea {
 
 	@Id
-	private int codigo;
+	private int gid;
+	private String codigo;
 	private String origen;
 	private String destino;
+	private String geom;
 	
 	@ManyToOne
 	private Compania compania;
 	
 	@OneToMany(mappedBy="linea",cascade=CascadeType.ALL,orphanRemoval=true)
 	private List<Recorrido> recorridos = new ArrayList<>();
+	
+	@OneToMany(mappedBy="parada",cascade=CascadeType.ALL,orphanRemoval=true) 
+	private List<LineaParada> lineaParada = new ArrayList<>();
 	
 	//********* CONSTRUCTORS **************
 	
@@ -32,44 +37,104 @@ public class Linea {
 		super();
 	}
 
-	public Linea(int codigo, String origen, String destino) {
+	
+	public Linea(int gid, String codigo, String origen, String destino, String geom) {
 		super();
+		this.gid = gid;
 		this.codigo = codigo;
 		this.origen = origen;
 		this.destino = destino;
+		this.geom = geom;
 	}
 
+
 	//Se crea un objeto Linea a partir de un Data Type
-	public Linea(DTLinea dtlinea) {
-		this.codigo = dtlinea.getCodigo();
-		this.origen = dtlinea.getOrigen();
-		this.destino = dtlinea.getDestino();
+	public Linea(DTLinea linea) {
+		this.gid = linea.getGid();
+		this.codigo = linea.getCodigo();
+		this.origen = linea.getOrigen();
+		this.destino = linea.getDestino();
+		this.geom = linea.getGeom();
 	}
-	
-	//******** GETRERS AND SETTERS ************
-	
-	public int getCodigo() {
+
+
+	public int getGid() {
+		return gid;
+	}
+
+
+	public void setGid(int gid) {
+		this.gid = gid;
+	}
+
+
+	public String getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
+
 
 	public String getOrigen() {
 		return origen;
 	}
 
+
 	public void setOrigen(String origen) {
 		this.origen = origen;
 	}
+
 
 	public String getDestino() {
 		return destino;
 	}
 
+
 	public void setDestino(String destino) {
 		this.destino = destino;
+	}
+
+
+	public String getGeom() {
+		return geom;
+	}
+
+
+	public void setGeom(String geom) {
+		this.geom = geom;
+	}
+
+
+	public Compania getCompania() {
+		return compania;
+	}
+
+
+	public void setCompania(Compania compania) {
+		this.compania = compania;
+	}
+
+
+	public List<Recorrido> getRecorridos() {
+		return recorridos;
+	}
+
+
+	public void setRecorridos(List<Recorrido> recorridos) {
+		this.recorridos = recorridos;
+	}
+
+
+	public List<LineaParada> getLineaParada() {
+		return lineaParada;
+	}
+
+
+	public void setLineaParada(List<LineaParada> lineaParada) {
+		this.lineaParada = lineaParada;
 	}
 	
 }

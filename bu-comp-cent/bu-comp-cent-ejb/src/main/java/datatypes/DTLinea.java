@@ -8,9 +8,11 @@ public class DTLinea implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
-	private int codigo;
+	private int gid;
+	private String codigo;
 	private String origen;
 	private String destino;
+	private String geom;
 	
 	//********* CONSTRUCTORS **************
 	
@@ -19,27 +21,39 @@ public class DTLinea implements Serializable{
 		super();
 	}
 
-	public DTLinea(int codigo, String origen, String destino) {
+	public DTLinea(int gid, String codigo, String origen, String destino, String geom) {
 		super();
+		this.gid = gid;
 		this.codigo = codigo;
 		this.origen = origen;
 		this.destino = destino;
+		this.geom = geom;
 	}
+
+
 
 	//Se crea un DTLinea a partir de un objeto Linea
 	public DTLinea(Linea linea) {
+		this.gid = linea.getGid();
 		this.codigo = linea.getCodigo();
 		this.origen = linea.getOrigen();
 		this.destino = linea.getDestino();
+		this.geom = linea.getGeom();
 	}
-	
-	//******** GETTERS AND SETTERS ************
-	
-	public int getCodigo() {
+
+	public int getGid() {
+		return gid;
+	}
+
+	public void setGid(int gid) {
+		this.gid = gid;
+	}
+
+	public String getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 
@@ -59,4 +73,12 @@ public class DTLinea implements Serializable{
 		this.destino = destino;
 	}
 
+	public String getGeom() {
+		return geom;
+	}
+
+	public void setGeom(String geom) {
+		this.geom = geom;
+	}
+	
 }
