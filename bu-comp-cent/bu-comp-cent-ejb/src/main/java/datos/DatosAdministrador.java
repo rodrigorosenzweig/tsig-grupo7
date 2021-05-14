@@ -1,4 +1,4 @@
-package Datos;
+package datos;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Singleton;

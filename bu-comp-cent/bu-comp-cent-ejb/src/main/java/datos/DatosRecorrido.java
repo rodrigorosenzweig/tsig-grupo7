@@ -1,4 +1,4 @@
-package Datos;
+package datos;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Singleton;
@@ -35,7 +35,10 @@ public class DatosRecorrido implements DatosRecorridoLocal {
     	toUpdate.setGeom(recorrido.getGeom());
     	em.refresh(toUpdate);
     }
-    
+
+    public void eliminarRecorrido(Recorrido recorrido) {
+    	em.remove(recorrido);
+    }
     public Recorrido buscarRecorrido(long codigo) {
     	return em.find(Recorrido.class, codigo);
     }
