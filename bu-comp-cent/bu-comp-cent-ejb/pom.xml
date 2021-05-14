@@ -52,7 +52,7 @@
             <artifactId>hibernate-validator</artifactId>
             <scope>provided</scope>
         </dependency>
-
+        
         <!-- Import the JPA API, we use provided scope as the API is included in WildFly / JBoss EAP -->
         <dependency>
             <groupId>jakarta.persistence</groupId>

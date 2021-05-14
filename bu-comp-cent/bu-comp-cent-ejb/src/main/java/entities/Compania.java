@@ -22,7 +22,6 @@ public class Compania {
 	@OneToMany(mappedBy="compania",cascade=CascadeType.ALL,orphanRemoval=true)
 	private List<Linea> Lineas = new ArrayList<>();
 
-	//********* CONSTRUCTORS **************
 	
 	//Constructor por defecto vacio
 	public Compania() {

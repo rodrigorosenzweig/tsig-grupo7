@@ -1,7 +1,7 @@
 package Datos;
 
 import javax.ejb.LocalBean;
-import javax.ejb.Stateful;
+import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -11,7 +11,7 @@ import entities.Administrador;
 /**
  * Session Bean implementation class DatosAdministrador
  */
-@Stateful
+@Singleton
 @LocalBean
 public class DatosAdministrador implements DatosAdministradorLocal {
 
@@ -39,18 +39,10 @@ public class DatosAdministrador implements DatosAdministradorLocal {
     public void eliminarAdministrador(Administrador administrador) {
     	em.remove(administrador);
     }
-    
-    /*busca administrador por id;
-     * retorna null si el id no existe */
-    public DTAdministrador buscarAdministrador(int id) {
-    	Administrador administrador = em.find(Administrador.class, id);
-    	if(administrador != null) {
-    		DTAdministrador DTA = new DTAdministrador(administrador);
-			return DTA;
-    	}
-    	else {
-    		return null;
-    	}
+
+    public Administrador buscarAdministrador(int id) {
+    	return em.find(Administrador.class, id);
+    	
     }
     
     

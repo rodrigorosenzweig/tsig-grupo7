@@ -10,6 +10,5 @@ public interface DatosAdministradorLocal {
 	public void altaAdminsitrador(Administrador administrador);
 	public void modificarAdministrador(Administrador administrador);
 	public void eliminarAdministrador(Administrador administrador);
-	public DTAdministrador buscarAdministrador(int id);
-	
+	public Administrador buscarAdministrador(int id);
 }

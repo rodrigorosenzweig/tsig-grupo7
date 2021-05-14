@@ -21,7 +21,7 @@ public class Recorrido {
 	private Boolean desvio;
 	private LocalDate fechaMod;
 	private String geom;
-	
+
 	@ManyToOne
 	private Linea linea;
 	
