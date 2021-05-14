@@ -137,4 +137,8 @@ public class Linea {
 		this.lineaParada = lineaParada;
 	}
 	
+	public void addLineaParada(LineaParada lineaParada) {
+		this.lineaParada.add(lineaParada);
+	}
+	
 }
