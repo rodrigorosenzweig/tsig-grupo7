@@ -24,14 +24,6 @@ public class Administrador {
 	private String email;
 	private int telefono;
 		
-	@ManyToMany(cascade= {CascadeType.PERSIST,CascadeType.MERGE})
-	private List<Compania> companias = new ArrayList<>();
-	
-	@ManyToMany(cascade= {CascadeType.PERSIST,CascadeType.MERGE})
-	private List<Linea> lineas = new ArrayList<>();
-	
-	@ManyToMany(cascade= {CascadeType.PERSIST,CascadeType.MERGE})
-	private List<Parada> paradas = new ArrayList<>();
 	
 	//********* CONSTRUCTORS **************
 	
