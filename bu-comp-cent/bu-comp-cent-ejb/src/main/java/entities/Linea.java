@@ -24,7 +24,7 @@ public class Linea {
 	private String origen;
 	private String destino;
 	@Lob @Basic(fetch=FetchType.LAZY)
-    @Column(name = "GEOMETRY", columnDefinition = "geometry")
+    @Column(name = "geom", columnDefinition = "geometry(linestring)")
 	private String geom;
 	
 	@ManyToOne

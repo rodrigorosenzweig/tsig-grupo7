@@ -27,7 +27,7 @@ public class Parada {
 	private long x;
 	private long y;
 	@Lob @Basic(fetch=FetchType.LAZY)
-    @Column(name = "GEOMETRY", columnDefinition = "geometry")
+    @Column(name = "geom", columnDefinition = "geometry(point)")
 	private String geom;
 	private int hora;
 	private int min;

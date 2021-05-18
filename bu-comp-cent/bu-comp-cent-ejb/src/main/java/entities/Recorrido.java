@@ -25,7 +25,7 @@ public class Recorrido {
 	private Boolean desvio;
 	private LocalDate fechaMod;
 	@Lob @Basic(fetch=FetchType.LAZY)
-    @Column(name = "GEOMETRY", columnDefinition = "geometry")
+    @Column(name = "geom", columnDefinition = "geometry(linestring)")
 	private String geom;
 
 	@ManyToOne
