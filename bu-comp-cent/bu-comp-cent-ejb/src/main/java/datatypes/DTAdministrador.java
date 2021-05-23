@@ -10,11 +10,8 @@ public class DTAdministrador implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	private int id;
-	private String nombre;
-	private String apellido;
-	private LocalDate fechaNac;
-	private String email;
-	private int telefono;
+	private String username;
+	private String pass;
 	
 	
 	//********* CONSTRUCTORS **************
@@ -27,21 +24,15 @@ public class DTAdministrador implements Serializable{
 	public DTAdministrador(int id, String nombre, String apellido, LocalDate fechaNac, String email, int telefono) {
 		super();
 		this.id = id;
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.fechaNac = fechaNac;
-		this.email = email;
-		this.telefono = telefono;
+		this.username = nombre;
+		this.pass = apellido;
 	}
 
 	//Se crea un DTAdministrador a partir de un objeto Administrador
 	public DTAdministrador(Administrador adm) {
 		this.id = adm.getId();
-		this.nombre = adm.getNombre();
-		this.apellido = adm.getApellido();
-		this.fechaNac = adm.getFechaNac();
-		this.email = adm.getEmail();
-		this.telefono = adm.getTelefono();
+		this.username = adm.getUsername();
+		this.pass = adm.getPass();
 	}
 	
 	//******** GETTERS AND SETTERS ************
@@ -54,44 +45,20 @@ public class DTAdministrador implements Serializable{
 		this.id = id;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public String getApellido() {
-		return apellido;
+	public String getPass() {
+		return pass;
 	}
 
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
-
-	public LocalDate getFechaNac() {
-		return fechaNac;
-	}
-
-	public void setFechaNac(LocalDate fechaNac) {
-		this.fechaNac = fechaNac;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public int getTelefono() {
-		return telefono;
-	}
-
-	public void setTelefono(int telefono) {
-		this.telefono = telefono;
+	public void setPass(String pass) {
+		this.pass = pass;
 	}
 
 }

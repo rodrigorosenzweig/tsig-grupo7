@@ -5,7 +5,6 @@ import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import entities.Administrador;
 import entities.Recorrido;
 
 /**

@@ -2,7 +2,6 @@ package datos;
 
 import javax.ejb.Local;
 
-import datatypes.DTAdministrador;
 import entities.Administrador;
 
 @Local

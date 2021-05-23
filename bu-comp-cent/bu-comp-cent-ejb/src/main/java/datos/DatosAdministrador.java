@@ -4,8 +4,6 @@ import javax.ejb.LocalBean;
 import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
-import datatypes.DTAdministrador;
 import entities.Administrador;
 
 /**
@@ -28,11 +26,8 @@ public class DatosAdministrador implements DatosAdministradorLocal {
     
     public void modificarAdministrador(Administrador administrador) {
     	Administrador toUpdate = em.find(Administrador.class, administrador.getId());
-    	toUpdate.setNombre(administrador.getNombre());
-    	toUpdate.setApellido(administrador.getApellido());
-    	toUpdate.setFechaNac(administrador.getFechaNac());
-    	toUpdate.setEmail(administrador.getEmail());
-    	toUpdate.setTelefono(administrador.getTelefono());
+    	toUpdate.setUsername(administrador.getUsername());
+    	toUpdate.setPass(administrador.getPass());
     	em.refresh(toUpdate);
     }
     

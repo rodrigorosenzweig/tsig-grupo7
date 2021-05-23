@@ -29,8 +29,8 @@ public class controladorAdministrador implements controladorAdministradorRemote 
     }
     
     public void eliminarAdministrador(DTAdministrador administrador) {
-    	Administrador editAdministrador = new Administrador(administrador);
-    	dal.eliminarAdministrador(editAdministrador);
+    	Administrador deleteAdministrador = new Administrador(administrador);
+    	dal.eliminarAdministrador(deleteAdministrador);
     }
     
     public DTAdministrador buscarAdministrador(int id) {

@@ -1,14 +1,8 @@
 package entities;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 
 import datatypes.DTAdministrador;
 
@@ -18,11 +12,8 @@ public class Administrador {
 	@Id
 	@GeneratedValue
 	private int id;
-	private String nombre;
-	private String apellido;
-	private LocalDate fechaNac;
-	private String email;
-	private int telefono;
+	private String username;
+	private String pass;
 		
 	
 	//********* CONSTRUCTORS **************
@@ -32,24 +23,18 @@ public class Administrador {
 		super();
 	}
 
-	public Administrador(int id, String nombre, String apellido, LocalDate fechaNac, String email, int telefono) {
+	public Administrador(int id, String nombre, String apellido) {
 		super();
 		this.id = id;
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.fechaNac = fechaNac;
-		this.email = email;
-		this.telefono = telefono;
+		this.username = nombre;
+		this.pass = apellido;
 	}
 
 	//Se crea un objeto Administrador a partir de un Data Type
 	public Administrador(DTAdministrador dtadm) {
 		this.id = dtadm.getId();
-		this.nombre = dtadm.getNombre();
-		this.apellido = dtadm.getApellido();
-		this.fechaNac = dtadm.getFechaNac();
-		this.email = dtadm.getEmail();
-		this.telefono = dtadm.getTelefono();
+		this.username = dtadm.getUsername();
+		this.pass = dtadm.getPass();
 	}
 	
 	//******** GETTERS AND SETTERS ************
@@ -62,44 +47,20 @@ public class Administrador {
 		this.id = id;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public String getApellido() {
-		return apellido;
+	public String getPass() {
+		return pass;
 	}
 
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
-
-	public LocalDate getFechaNac() {
-		return fechaNac;
-	}
-
-	public void setFechaNac(LocalDate fechaNac) {
-		this.fechaNac = fechaNac;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public int getTelefono() {
-		return telefono;
-	}
-
-	public void setTelefono(int telefono) {
-		this.telefono = telefono;
+	public void setPass(String pass) {
+		this.pass = pass;
 	}
 
 }
